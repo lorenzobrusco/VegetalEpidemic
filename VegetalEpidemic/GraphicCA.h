@@ -6,6 +6,7 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5\allegro_native_dialog.h>
 #include <allegro5\allegro_primitives.h>
+#include <allegro5\allegro_image.h>
 #include <stdio.h> 
 #include "CellularAutomata.h"
 class GraphicCA
@@ -19,6 +20,7 @@ private:
 	ALLEGRO_DISPLAY * display;
 	ALLEGRO_FONT* font;
 	ALLEGRO_EVENT_QUEUE* events;
+	ALLEGRO_BITMAP* icon;
 	CellularAutomata* cellular_automata;
 };
 

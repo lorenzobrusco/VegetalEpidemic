@@ -6,10 +6,12 @@ GraphicCA::GraphicCA(CellularAutomata* cellular_automata)
 	al_init();
 	al_init_font_addon();
 	al_init_ttf_addon();
+	al_init_image_addon();
 	this->cellular_automata = cellular_automata;
 	this->display = al_create_display(cellular_automata->getWorld()->getRows(), cellular_automata->getWorld()->getCols()+20);
 	this->font = al_load_ttf_font("stan0751.ttf", 12, 0);
 	this->events = al_create_event_queue();
+	this->icon = al_load_bitmap("leaf.png");
 	if (!display) {
 		fprintf(stderr, "Failed to create display.\n");
 		exit(-1);
@@ -21,9 +23,13 @@ GraphicCA::GraphicCA(CellularAutomata* cellular_automata)
 	
 	if (!events) {
 		fprintf(stderr, "failed to create event_queue!\n");
-		al_destroy_display(display);
 		exit(-1);
 	}
+	if (!icon) {
+		fprintf(stderr, "Could not load 'leaf.png'.\n");
+		exit(-1);
+	}
+	al_set_display_icon(display, icon);
 	al_register_event_source(events, al_get_display_event_source(display));
 	al_set_window_title(this->display, "Vegetal Epidemic");
 }

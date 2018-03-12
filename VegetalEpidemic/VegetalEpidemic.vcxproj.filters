@@ -60,4 +60,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="leaf.png">
+      <Filter>File di risorse</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
