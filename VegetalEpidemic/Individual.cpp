@@ -8,11 +8,6 @@
 #include "Individual.h"
 
 Individual::Individual() {
-	this->symbol = 0;
-}
-
-Individual::Individual(int symbol) {
-	this->symbol = symbol;
 }
 
 Individual::~Individual() {

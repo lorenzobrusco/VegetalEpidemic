@@ -12,10 +12,10 @@
 
 class InfectedPlant : public Individual {
 public:
-	InfectedPlant();
-	int getTimeToInfect() const;
-	void next_step();
-	bool is_still_infected()const;
+	InfectedPlant(){ this->time_to_infect = 1; }
+	int getTimeToInfect() const{ return this->time_to_infect; }
+	void next_step() { this->time_to_infect--; }
+	bool is_still_infected()const { return this->time_to_infect > 0; }
 
 private:
 	int time_to_infect;

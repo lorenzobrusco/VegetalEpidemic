@@ -11,7 +11,7 @@
 class HealtedPlant : public Individual {
 public:
 	HealtedPlant() :
-		Individual(2) {
+		Individual() {
 	}
 private:
 };

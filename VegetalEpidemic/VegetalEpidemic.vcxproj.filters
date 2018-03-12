@@ -53,12 +53,6 @@
     <ClCompile Include="World.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="InfectedPlant.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="Individual.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicCA.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>

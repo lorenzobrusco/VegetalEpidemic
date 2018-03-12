@@ -12,15 +12,9 @@
 
 class Individual {
 public:
-	Individual();
-	Individual(int);
-	virtual ~Individual();
-	int getSymbol();
-	void setSymbol(int symbol);
-
-	Individual& operator = (const Individual &a);
+	Individual() {}
+	virtual ~Individual(){}
 private:
-	int symbol;
 };
 
 #endif

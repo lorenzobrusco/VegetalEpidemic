@@ -32,8 +32,6 @@
   <ItemGroup>
     <ClCompile Include="CellularAutomata.cpp" />
     <ClCompile Include="GraphicCA.cpp" />
-    <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="InfectedPlant.cpp" />
     <ClCompile Include="VegetalEpidemic.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>

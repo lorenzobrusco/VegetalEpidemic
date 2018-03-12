@@ -13,7 +13,7 @@
 class Plant : public Individual {
 public:
 	Plant() :
-		Individual(1) {
+		Individual() {
 	}
 private:
 

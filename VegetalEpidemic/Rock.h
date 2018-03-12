@@ -13,7 +13,7 @@
 class Rock : public Individual {
 public:
 	Rock() :
-		Individual(4) {
+		Individual() {
 	}
 
 private:
