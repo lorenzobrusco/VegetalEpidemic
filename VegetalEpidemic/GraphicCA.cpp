@@ -20,7 +20,6 @@ GraphicCA::GraphicCA(CellularAutomata* cellular_automata)
 		fprintf(stderr, "Could not load 'pirulen.ttf'.\n");
 		exit(-1);
 	}
-	
 	if (!events) {
 		fprintf(stderr, "failed to create event_queue!\n");
 		exit(-1);
@@ -70,7 +69,7 @@ void GraphicCA::loop()
 					al_draw_pixel(i, j, al_map_rgb(50, 200, 50));
 				}
 				else if (Helper::instanceof<Rock>(this->cellular_automata->getWorld()->getIndividual(i, j))) {
-					al_draw_pixel(i, j, al_map_rgb(200, 200, 200));
+					al_draw_pixel(i, j, al_map_rgb(100, 100, 100));
 				}
 			}
 		}

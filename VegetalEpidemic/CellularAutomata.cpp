@@ -20,42 +20,35 @@ CellularAutomata::~CellularAutomata() {
 	delete this->world;
 }
 
-void CellularAutomata::run() {
-	
-}
 
 void CellularAutomata::step() {
 	Individual*** tmp_matrix = this->world->get_next_matrix();
 	for (int i = 0; i < this->world->getRows(); i++) {
 		for (int j = 0; j < this->world->getCols(); j++) {
 			tmp_matrix[i][j] = this->world->getIndividual(i, j);
-			if (Helper::instanceof<Plant>(this->world->getIndividual(i, j))) {
-				if (this->infect_neighbouring(i, j)) {
-					tmp_matrix[i][j] = new InfectedPlant();
-					this->current_infected++;
-				}
-			}
-			else if (Helper::instanceof<InfectedPlant>(
-				this->world->getIndividual(i, j))) {
-				InfectedPlant* infected =
-					dynamic_cast<InfectedPlant*>(this->world->getIndividual(
-						i, j));
-				infected->next_step();
-				if (!infected->is_still_infected()) {
-					tmp_matrix[i][j] = new HealtedPlant();
-					this->current_infected--;
-				}
-			}
+			this->behavior(tmp_matrix, i, j);
 		}
 	}
 	this->world->swap_matrix();
 	this->n_step++;
 }
 
-void CellularAutomata::pause() {
-}
-
-void CellularAutomata::resume() {
+void CellularAutomata::behavior(Individual*** tmp_matrix, int i, int j) {
+	if (Helper::instanceof<Plant>(this->world->getIndividual(i, j))) {
+		if (this->infect_neighbouring(i, j)) {
+			tmp_matrix[i][j] = new InfectedPlant();
+			this->current_infected++;
+		}
+	}
+	else if (Helper::instanceof<InfectedPlant>(
+		this->world->getIndividual(i, j))) {
+		InfectedPlant* infected =dynamic_cast<InfectedPlant*>(this->world->getIndividual(i, j));
+		infected->next_step();
+		if (!infected->is_still_infected()) {
+			tmp_matrix[i][j] = new HealtedPlant();
+			this->current_infected--;
+		}
+	}
 }
 
 World * CellularAutomata::getWorld() const

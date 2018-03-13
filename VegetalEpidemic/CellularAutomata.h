@@ -15,10 +15,9 @@ class CellularAutomata {
 public:
 	CellularAutomata(int, int, double, int);
 	~CellularAutomata();
-	void run();
 	void step();
-	void pause();
-	void resume();
+	void behavior(Individual***, int, int);
+
 	World* getWorld()const;
 	int get_n_step()const;
 	int get_initial_infected()const;
